@@ -19,7 +19,7 @@
     "indent": ["error", 2], // Enforce 2-space indentation
     "semi": ["error", "always"], // Require semicolons at the end of statements
     "quotes": ["error", "single"], // Enforce single quotes for string literals
-    "no-unused-vars": ["error"],  // Report unused variables
+    // "no-unused-vars": ["error"],  // Report unused variables // for some reason, it registers when using a this.variable from a constructor as an unused variable
     "camelcase": ["error"], // Enforce camelCase for variable and function names
     "array-bracket-spacing": ["error", "always"] // Enforce spacing around array brackets
     }
