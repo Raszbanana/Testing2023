@@ -20,7 +20,7 @@
     "semi": ["error", "always"], // Require semicolons at the end of statements
     "quotes": ["error", "single"], // Enforce single quotes for string literals
     "no-unused-vars": ["error"],  // Report unused variables
-    "camelcase": ["error"],
+    "camelcase": ["error"], // Enforce camelCase for variable and function names
     "array-bracket-spacing": ["error", "always"] // Enforce spacing around array brackets
     }
 }
