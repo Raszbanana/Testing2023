@@ -1,23 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// Nikolai
+// Initialize enum because enums are better to work with #based
 export enum WeightUnit {
   Kilograms = 'kilograms',
   Pounds = 'pounds'
 }
-export class Weight {
-  constructor(private value: number, private unit: WeightUnit ) {}
+const conversionFactor = 2.20462;
+export class WeightConverter {
 
-  convert(): number | string {
-    if (this.unit === WeightUnit.Kilograms) {
-      return this.value * 2.20462;
-    } else if (this.unit === WeightUnit.Pounds) {
+  convert(value: number, unit: WeightUnit): number | string {
+    if (unit === WeightUnit.Kilograms) {
+      // Convert from kilograms to pounds
+      return value * conversionFactor;
+    } else if (unit === WeightUnit.Pounds) {
       // Convert from pounds to kilograms
-      return this.value / 2.20462;
+      return value / conversionFactor;
     }
     return 'Invalid unit';
   }
 }
 
-// Example usage:
-const weightInKilograms = new Weight(50, WeightUnit.Kilograms);
-const weightInPounds = new Weight(110, WeightUnit.Pounds);
