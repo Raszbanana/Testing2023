@@ -15,17 +15,22 @@ export class Temperature {
 
   public convert(toScale: TemperatureScale): number {
     let result: number;
+
     if(!isNaN(this.measure)) {
+
       switch (this.scale) {
       case TemperatureScale.Celsius:
         result = this.convertFromCelsius(toScale);
         break;
+
       case TemperatureScale.Fahrenheit:
         result = this.convertFromFahrenheit(toScale);
         break;
+
       case TemperatureScale.Kelvin:
         result = this.convertFromKelvin(toScale);
         break;
+
       default:
         throw new Error(`Invalid temperature scale: ${this.scale}`);
       }
@@ -50,8 +55,10 @@ export class Temperature {
     switch (toScale) {
     case TemperatureScale.Celsius:
       return (this.measure - 32) * 5 / 9;
+
     case TemperatureScale.Kelvin:
       return (this.measure + 459.67) * 5 / 9;
+
     default:
       throw new Error(`Invalid temperature scale: ${toScale}`);
     }
@@ -61,8 +68,10 @@ export class Temperature {
     switch (toScale) {
     case TemperatureScale.Celsius:
       return this.measure - 273.15;
+
     case TemperatureScale.Fahrenheit:
       return (this.measure * 9 / 5) - 459.67;
+      
     default:
       throw new Error(`Invalid temperature scale: ${toScale}`);
     }
