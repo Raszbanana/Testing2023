@@ -44,8 +44,10 @@ export class Temperature {
     switch (toScale) {
     case TemperatureScale.Fahrenheit:
       return (this.measure * 9 / 5) + 32;
+
     case TemperatureScale.Kelvin:
       return this.measure + 273.15;
+      
     default:
       throw new Error(`Invalid temperature scale: ${toScale}`);
     }
@@ -71,7 +73,7 @@ export class Temperature {
 
     case TemperatureScale.Fahrenheit:
       return (this.measure * 9 / 5) - 459.67;
-      
+
     default:
       throw new Error(`Invalid temperature scale: ${toScale}`);
     }
