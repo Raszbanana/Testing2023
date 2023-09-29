@@ -1,7 +1,7 @@
 export enum TemperatureScale {
-  Celsius = 'C',
-  Fahrenheit = 'F',
-  Kelvin = 'K',
+  CELSIUS = 'C',
+  FAHRENHEIT = 'F',
+  KELVIN = 'K',
 }
 
 export class Temperature {
@@ -19,15 +19,15 @@ export class Temperature {
     if(!isNaN(this.measure)) {
 
       switch (this.scale) {
-      case TemperatureScale.Celsius:
+      case TemperatureScale.CELSIUS:
         result = this.convertFromCelsius(toScale);
         break;
 
-      case TemperatureScale.Fahrenheit:
+      case TemperatureScale.FAHRENHEIT:
         result = this.convertFromFahrenheit(toScale);
         break;
 
-      case TemperatureScale.Kelvin:
+      case TemperatureScale.KELVIN:
         result = this.convertFromKelvin(toScale);
         break;
 
@@ -42,10 +42,10 @@ export class Temperature {
 
   private convertFromCelsius(toScale: TemperatureScale): number {
     switch (toScale) {
-    case TemperatureScale.Fahrenheit:
+    case TemperatureScale.FAHRENHEIT:
       return (this.measure * 9 / 5) + 32;
 
-    case TemperatureScale.Kelvin:
+    case TemperatureScale.KELVIN:
       return this.measure + 273.15;
       
     default:
@@ -55,10 +55,10 @@ export class Temperature {
 
   private convertFromFahrenheit(toScale: TemperatureScale): number {
     switch (toScale) {
-    case TemperatureScale.Celsius:
+    case TemperatureScale.CELSIUS:
       return (this.measure - 32) * 5 / 9;
 
-    case TemperatureScale.Kelvin:
+    case TemperatureScale.KELVIN:
       return (this.measure + 459.67) * 5 / 9;
 
     default:
@@ -68,10 +68,10 @@ export class Temperature {
 
   private convertFromKelvin(toScale: TemperatureScale): number {
     switch (toScale) {
-    case TemperatureScale.Celsius:
+    case TemperatureScale.CELSIUS:
       return this.measure - 273.15;
 
-    case TemperatureScale.Fahrenheit:
+    case TemperatureScale.FAHRENHEIT:
       return (this.measure * 9 / 5) - 459.67;
 
     default:

@@ -11,7 +11,7 @@ describe('Weight Conversion', () => {
 
     kgToPoundsCases.forEach(({ input, expected }) => {
       const weight = new WeightConverter();
-      expect(weight.convert(input, WeightUnit.Kilograms)).toBeCloseTo(expected, 4); // toBeCloseTo because of floating point precision
+      expect(weight.convert(input, WeightUnit.KILOGRAMS)).toBeCloseTo(expected, 4); // toBeCloseTo because of floating point precision
     });
   });
 
@@ -25,7 +25,7 @@ describe('Weight Conversion', () => {
 
     poundsToKgCases.forEach(({ input, expected }) => {
       const weight = new WeightConverter();
-      expect(weight.convert(input, WeightUnit.Pounds)).toBeCloseTo(expected, 4); // toBeCloseTo because of floating point precision
+      expect(weight.convert(input, WeightUnit.POUNDS)).toBeCloseTo(expected, 4); // toBeCloseTo because of floating point precision
     });
   });
 

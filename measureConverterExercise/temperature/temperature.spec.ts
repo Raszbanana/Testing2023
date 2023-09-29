@@ -5,33 +5,33 @@ describe('Temperature Conversion', () => {
     const cases = [
       {
         input: 0,
-        inputScale: TemperatureScale.Celsius,
+        inputScale: TemperatureScale.CELSIUS,
         expected: 32,
-        expectedScale: TemperatureScale.Fahrenheit,
+        expectedScale: TemperatureScale.FAHRENHEIT,
       },
       {
         input: 100,
-        inputScale: TemperatureScale.Celsius,
+        inputScale: TemperatureScale.CELSIUS,
         expected: 212,
-        expectedScale: TemperatureScale.Fahrenheit,
+        expectedScale: TemperatureScale.FAHRENHEIT,
       },
       {
         input: -40,
-        inputScale: TemperatureScale.Celsius,
+        inputScale: TemperatureScale.CELSIUS,
         expected: -40,
-        expectedScale: TemperatureScale.Fahrenheit,
+        expectedScale: TemperatureScale.FAHRENHEIT,
       },
       {
         input: 32,
-        inputScale: TemperatureScale.Fahrenheit,
+        inputScale: TemperatureScale.FAHRENHEIT,
         expected: 0,
-        expectedScale: TemperatureScale.Celsius,
+        expectedScale: TemperatureScale.CELSIUS,
       },
       {
         input: 212,
-        inputScale: TemperatureScale.Fahrenheit,
+        inputScale: TemperatureScale.FAHRENHEIT,
         expected: 100,
-        expectedScale: TemperatureScale.Celsius,
+        expectedScale: TemperatureScale.CELSIUS,
       },
     ];
 
@@ -46,15 +46,15 @@ describe('Temperature Conversion', () => {
     const cases = [
       {
         input: 0,
-        inputScale: TemperatureScale.Celsius,
+        inputScale: TemperatureScale.CELSIUS,
         expected: 273.15,
-        expectedScale: TemperatureScale.Kelvin,
+        expectedScale: TemperatureScale.KELVIN,
       },
       {
         input: -273.15,
-        inputScale: TemperatureScale.Celsius,
+        inputScale: TemperatureScale.CELSIUS,
         expected: 0,
-        expectedScale: TemperatureScale.Kelvin,
+        expectedScale: TemperatureScale.KELVIN,
       },
     ];
 
@@ -69,15 +69,15 @@ describe('Temperature Conversion', () => {
     const cases = [
       {
         input: 32,
-        inputScale: TemperatureScale.Fahrenheit,
+        inputScale: TemperatureScale.FAHRENHEIT,
         expected: 273.15,
-        expectedScale: TemperatureScale.Kelvin,
+        expectedScale: TemperatureScale.KELVIN,
       },
       {
-        input: 212,
-        inputScale: TemperatureScale.Fahrenheit,
-        expected: 373.15,
-        expectedScale: TemperatureScale.Kelvin,
+        input: 373.15,
+        inputScale: TemperatureScale.KELVIN,
+        expected: 212,
+        expectedScale: TemperatureScale.FAHRENHEIT,
       },
     ];
 
@@ -90,7 +90,7 @@ describe('Temperature Conversion', () => {
 
   it('should handle invalid destination scales', () => {
     const invalidScale = 'InvalidScale';
-    const temperature = new Temperature(0, TemperatureScale.Celsius);
+    const temperature = new Temperature(0, TemperatureScale.CELSIUS);
 
     expect(() =>
       temperature.convert(invalidScale as TemperatureScale)
@@ -98,9 +98,9 @@ describe('Temperature Conversion', () => {
   });
 
   it('should handle invalid temperature values', () => {
-    const temperature = new Temperature({} as number, TemperatureScale.Celsius);
+    const temperature = new Temperature({} as number, TemperatureScale.CELSIUS);
 
-    expect(() => temperature.convert(TemperatureScale.Fahrenheit)).toThrowError(
+    expect(() => temperature.convert(TemperatureScale.FAHRENHEIT)).toThrowError(
       'Invalid temperature value'
     );
   });
